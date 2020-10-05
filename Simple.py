@@ -83,6 +83,8 @@ class ARIMA_ind(bt.Indicator):
             obs = test[t]
             history.append(obs)
             print ('predicted = %f, expected = %f'%(yhat, obs))
+	error = mean_squared_error(test, predictions)
+	print('Test MSE: %.3f' % error)
         
         self.lines.ARIMA_Model_Returns_Forecast[0] = predictions[-1]
         
@@ -134,6 +136,8 @@ class auto_ARIMA_ind(bt.Indicator):
             obs = test[t]
             history.append(obs)
             print ('predicted = %f, expected = %f'%(yhat, obs))
+	error = mean_squared_error(test, predictions)
+	print('Test MSE: %.3f' % error)
         
         self.lines.ARIMA_Model_Returns_Forecast[0] = predictions[-1]
         
